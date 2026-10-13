@@ -1,0 +1,53 @@
+{
+  "info": {
+    "_postman_id": "a69814e7-fa1a-48c3-85a0-372e4607ac27",
+    "name": "User",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "58696775"
+  },
+  "item": [
+    {
+      "name": "Create user",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "const uniqueEmail = `testuser_${Date.now()}@example.com`;\r\n\r\npm.environment.set(\"uniqueEmail\", uniqueEmail);\r\n"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Nicolas\",\r\n  \"email\": \"{{uniqueEmail}}\",\r\n  \"password\": \"1234\",\r\n  \"avatar\": \"https://picsum.photos/800\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://api.escuelajs.co/api/v1/users/",
+          "protocol": "https",
+          "host": [
+            "api",
+            "escuelajs",
+            "co"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "users",
+            ""
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
